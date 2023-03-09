@@ -1,5 +1,10 @@
 {{--@include('layouts.master') --}}
 @extends('layouts.master')
+@push('styles')
+
+@endpush
+
+@section('breadcumb','Dashboard')
 @section('contents')
 <div class="content">
     <div class="container-fluid">
@@ -10,13 +15,14 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-warning text-center">
-                                    <i class="ti-server"></i>
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Capacity</p>
-                                    105GB
+                                    <p>Users</p>
+                                    {{number_format($users)}}
+                                    
                                 </div>
                             </div>
                         </div>
@@ -35,12 +41,12 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-success text-center">
-                                    <i class="ti-wallet"></i>
+                                    <i class="fas fa-building-user"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Revenue</p>
+                                    <p>Department</p>
                                     $1,345
                                 </div>
                             </div>
@@ -65,8 +71,8 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Errors</p>
-                                    23
+                                    <p>Employees</p>
+                                    {{number_format($employee_count)}}
                                 </div>
                             </div>
                         </div>
@@ -90,7 +96,7 @@
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Followers</p>
+                                    <p>Job titles</p>
                                     +45
                                 </div>
                             </div>
@@ -188,3 +194,33 @@
 <a href="/notification"></a>
 <a href="/maps"></a>
 <a href="/icons"></a>
+
+@push('scripts')
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="assets/js/bootstrap-checkbox-radio.js"></script>
+
+    <!--  Charts Plugin -->
+    <script src="assets/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="assets/js/bootstrap-notify.js"></script>
+
+    <!--  Google Maps Plugin    -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+    <script src="assets/js/paper-dashboard.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            demo.initChartist();
+            // $.notify({
+            // 	icon: 'ti-gift',
+            // 	message: "Welcome to <b>Paper Dashboard</b> - a beautiful Bootstrap freebie for your next project."
+            // },{
+            //     type: 'success',
+            //     timer: 4000
+            // });
+        });
+    </script>
+@endpush

@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use App\Models\employee;
+use App\Models\department;
+use App\Models\job_title;
 use Illuminate\Support\Facades\Route;
 
 /*
